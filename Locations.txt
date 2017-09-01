@@ -1,0 +1,3 @@
+Movie Theater, Usher, Concession Worker, Cashier, Security, Manager, Horror Viewer, Action Viewer, Drama Viewer, Documentary Viewer, Comedy Viewer
+University, Dean, Math Professor, Physics Professor, Humanities Professor, Teaching Assistant, Honor Student, Slacker Student, Lab Assistant, Jock Student, Student Council Member
+White House, President, Vice President, Chief of Staff, First Lady/GentleMan, Press Secretary, Reporter, Speech Writer, Secret Service Agent, Protester, Chief

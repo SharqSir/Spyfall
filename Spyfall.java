@@ -34,6 +34,9 @@ public class Spyfall{
 		String[] game=set.setRoles(10);
 		System.out.println(set.getLoc());
 		for(String s:game){
+			if(s.equals("Spy")){
+				System.out.print("\tTRUE ");
+			}
 			System.out.println(s);
 		}
     }
@@ -43,25 +46,30 @@ class Location{
     public Location(String name, String[] roles){
         this.name=name; this.roles=roles;
     }
-    public String getLoc(){return name;}
-    public String[] getRoles(){return roles;}
+    public String getLoc(){
+		return name;
+	}
+    public String[] getRoles(){
+		return roles;
+	}
     public String[] setRoles(int n){
 		String[] result = new String[n];
         Random r = new Random();
-		setRoles(n,0,result,r);
-        result[r.nextInt(roles.length-1)]="Spy";
+		List<String> l= new ArrayList(Arrays.asList(roles));
+		setRoles(n-1,0,result,r,l);
+        result[r.nextInt(n-1)]="Spy";
 		return result;
 	}
-    private void setRoles(int n,int i,String[] result,Random r){
-        if(i<n){
-            String temp=roles[r.nextInt(roles.length-1)];
-            if(result.toString().contains(temp)){
-                setRoles(n,i,result,r);
-            }
-            else{
-                result[i]=temp;
-                setRoles(n,++i,result,r);
-            }
-        }
+    private void setRoles(int n,int i,String[] result,Random r, List<String> l){
+		if(l.size()==1){
+			result[i]=l.get(0);
+		}
+		else{
+			result[i]=l.get(r.nextInt(l.size()-1));
+			l.remove(result[i]);
+			if(i<n){
+				setRoles(n,++i,result,r,l);
+			}
+		}
     }
 }
